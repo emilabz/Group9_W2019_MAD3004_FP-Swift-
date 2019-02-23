@@ -38,7 +38,7 @@ default:print("Enter valid choice")
 print("Welcome User. Enter choice\n1.View items on sale\n2.Your cart\n3.Update cart\n4.Placed Orders\n5.Update shipping info")
 let cho=readLine()
 switch(cho){
-case "1":
+case "1":   //view items from which orders are to be placed
     print("Products available\nItem No.\t\tItem Name\t\t  Item Price")
     for i in p{
         print("\t\(i.productId)\t   \(i.productName)\t\t\(i.productPrice)")
@@ -60,7 +60,7 @@ case "1":
         c1.checkOut()
     }
     
-case "2":
+case "2":   //view items on sale
     if(c1.sc.isEmpty){
         print("Your cart is empty")
     }
@@ -71,7 +71,7 @@ case "2":
         }
     }
     
-case "3":
+case "3":   //view cart
     print("Enter cart id")
     let cartId=Int(readLine()!)!
     for i in c1.sc{
@@ -80,17 +80,16 @@ case "3":
         }
     }
     
-case "4":
+case "4":   //placed orders
     if(c1.o.isEmpty){
         print("Your order is empty")
     }
     else{
         print("Your orders are")
-        //for i in c1.o{
-            
-        //}
-    
+        for i in c1.o{
+            print(i.display())
+        }
     }
-
+//case 5: //update shipping info
 default:print("Enter valid choice")
 }
