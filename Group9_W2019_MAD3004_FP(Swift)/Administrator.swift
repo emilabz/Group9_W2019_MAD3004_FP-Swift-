@@ -6,7 +6,6 @@
 //  Copyright © 2019 MacStudent. All rights reserved.
 //
 
-
 import Foundation
 class Admininstrator : User{
     var adminName:String
