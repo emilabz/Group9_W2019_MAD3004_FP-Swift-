@@ -8,14 +8,14 @@
 
 import Foundation
 /*var varname:datatype{
-    get{
-    return xxx
-    }
-    set{
-    exec code
-    }
+ get{
+ return xxx
+ }
+ set{
+ exec code
+ }
  }*/
-class Customer : User{
+class Customer : User,IDisplay{
     var customerName:String
     var address:String
     var email:String
@@ -40,7 +40,42 @@ class Customer : User{
         super.init(uId: uId, pass: pass, lstatus: lstatus)
     }
     func register(){
-        
+        var ch=0
+        repeat{
+            print("Enter id")
+            let uId=readLine()!
+            if(!uId.isSimilarId()){
+                self.userId=uId
+            }
+            else{
+                print("User id exists")
+                continue
+            }
+            print("Enter password(at least one uppercase,one digit,one lowercase,8 characters")
+            let pass=readLine()!
+            if(pass.isValidPassword()){
+                self.password=pass
+            }
+            else{
+                print("Password is invalid")
+                continue
+            }
+            print("Enter email")
+            let email=readLine()!
+            if(email.isValidEmail()){
+                self.email=email
+            }
+            else{
+                print("Invalid email")
+                continue
+            }
+            print("press 1 to continue")
+            ch=Int(readLine()!)!
+        }while(ch == 0)
+        print("Enter customer name")
+        self.customerName=readLine()!
+        print("Enter address")
+        self.address=readLine()!
     }
     func login(uId:String,pass:String){
         if(super.verifyLogin(usId: uId, pass: pass)){
@@ -55,18 +90,20 @@ class Customer : User{
     }
     func checkOut(){
         let date=Date()
-        let sdate=Date().addingTimeInterval(5)
-        let formatter=DateFormatter()
-        formatter.dateFormat="dd-MM-yyyy"
-        let currdate=formatter.string(from: date)
-        let shipdate=formatter.string(from: sdate)
+        let sdate=Date.init(timeIntervalSinceNow: 5*86400)
+        let currdate=date.formatDate()
+        let shipdate=sdate.formatDate()
         print("Select shipping type1.Domestic 2.International")
         let choice=Int(readLine()!)!
+        var shipCost:Int
+        var shipType:String
         if(choice == 1){
-            let shipCost=5
+            shipCost=5
+            shipType="Domestic"
         }
         else{
-            let shipCost=15
+            shipCost=15
+            shipType="International"
         }
         print("Select region/province\n1.Ontario\n2.British Columbia\n3.Quebec\n4.Alberta")
         let regchoice=Int(readLine()!)!
@@ -75,7 +112,12 @@ class Customer : User{
         if(confirm == 1){
             let or=Orders()
             //or.placeOrder()
+            or.placeOrder(currDate: currdate, shipDate: shipdate, custName: self.customerName, shipType: shipType, shipCost: shipCost, regionId: regchoice, cartObj: sc)
             o.append(or)
         }
+    }
+    func display() -> String {
+        let retString = "Name: \(self.customerName)\nAddress: \(self.address)\nEmail: \(self.email)\nCredit cardInfo: \(self.creditCardInfo)\nShipping info: \(self.shippingInfo)"
+        return retString
     }
 }
