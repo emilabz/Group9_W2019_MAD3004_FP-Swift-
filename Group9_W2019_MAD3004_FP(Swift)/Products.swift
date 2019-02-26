@@ -7,43 +7,48 @@
 //
 
 import Foundation
-class Products{
+class Products:IDisplay{
     var productId:Int
     /*{
+     get{
+     return productId
+     }
+     set(newId){
+     productId=newId
+     }
+     }*/
+    var getproductID:Int{
         get{
             return productId
         }
-        set(newId){
-            productId=newId
-        }
-    }*/
+    }
     var productName:String
     /*{
-        get{
-            return productName
-        }
-        set(newName){
-            productName=newName
-        }
-    }*/
+     get{
+     return productName
+     }
+     set(newName){
+     productName=newName
+     }
+     }*/
     var productQuantity:Int
     /*{
-        get{
-            return productQuantity
-        }
-        set(newQuantity){
-            productQuantity=newQuantity
-        }
-    }*/
+     get{
+     return productQuantity
+     }
+     set(newQuantity){
+     productQuantity=newQuantity
+     }
+     }*/
     var productPrice:Float
     /*{
-        get{
-            return productPrice
-        }
-        set(newPrice){
-            productPrice=newPrice
-        }
-    }*/
+     get{
+     return productPrice
+     }
+     set(newPrice){
+     productPrice=newPrice
+     }
+     }*/
     init(){
         self.productId=0
         self.productName=String()
@@ -56,7 +61,9 @@ class Products{
         self.productQuantity=productQuantity
         self.productPrice=productPrice
     }
-    //func prodisplay(){
-        
-    //}
+    func display() -> String {
+        let retString = "\t\(self.productId)\t  \(self.productName)\t\t\(self.productPrice)"
+        return retString
+    }
 }
+
