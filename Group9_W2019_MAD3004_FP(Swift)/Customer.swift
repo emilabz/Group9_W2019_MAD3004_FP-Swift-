@@ -8,12 +8,12 @@
 
 import Foundation
 /*var varname:datatype{
- get{
- return xxx
- }
- set{
- exec code
- }
+    get{
+    return xxx
+    }
+    set{
+    exec code
+    }
  }*/
 class Customer : User,IDisplay{
     var customerName:String

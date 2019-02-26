@@ -10,13 +10,13 @@ import Foundation
 class Products:IDisplay{
     var productId:Int
     /*{
-     get{
-     return productId
-     }
-     set(newId){
-     productId=newId
-     }
-     }*/
+        get{
+            return productId
+        }
+        set(newId){
+            productId=newId
+        }
+    }*/
     var getproductID:Int{
         get{
             return productId
@@ -24,31 +24,31 @@ class Products:IDisplay{
     }
     var productName:String
     /*{
-     get{
-     return productName
-     }
-     set(newName){
-     productName=newName
-     }
-     }*/
+        get{
+            return productName
+        }
+        set(newName){
+            productName=newName
+        }
+    }*/
     var productQuantity:Int
     /*{
-     get{
-     return productQuantity
-     }
-     set(newQuantity){
-     productQuantity=newQuantity
-     }
-     }*/
+        get{
+            return productQuantity
+        }
+        set(newQuantity){
+            productQuantity=newQuantity
+        }
+    }*/
     var productPrice:Float
     /*{
-     get{
-     return productPrice
-     }
-     set(newPrice){
-     productPrice=newPrice
-     }
-     }*/
+        get{
+            return productPrice
+        }
+        set(newPrice){
+            productPrice=newPrice
+        }
+    }*/
     init(){
         self.productId=0
         self.productName=String()
@@ -66,4 +66,3 @@ class Products:IDisplay{
         return retString
     }
 }
-

@@ -27,14 +27,14 @@ repeat{
         //type of user needed
         c1.login(uId: "user1",pass: "user1")
         break
-        
+
     case "2":
         print("In signup")
         //let cus:Customer?
         c.append(Customer())
         c[c.endIndex-1].register()
         //c2.login(uId: "user1", pass: "user1")     //test code
-    //  c2.register()
+        //  c2.register()
     case "3":
         print("Exiting..")
         exit(0)
@@ -64,7 +64,7 @@ repeat{
                 //ask for repeating orders. if thats done then checkout
                 c1.checkOut()
             }
-            
+    
         case "2":   //view items on sale
             if(c1.sc.isEmpty){
                 print("Your cart is empty")
@@ -75,7 +75,7 @@ repeat{
                     i.viewCartDetails()
                 }
             }
-            
+    
         case "3":   //view cart
             print("Enter cart id")
             let cartId=Int(readLine()!)!
@@ -84,7 +84,7 @@ repeat{
                     i.updateQuantity()
                 }
             }
-            
+    
         case "4":   //placed orders
             if(c1.o.isEmpty){
                 print("Your order is empty")
@@ -98,9 +98,9 @@ repeat{
                         print("Empty item details")
                     }
                     else{
-                        for j in i.od{
-                            total += j.subtotal
-                            print(j.display())
+                    for j in i.od{
+                        total += j.subtotal
+                        print(j.display())
                         }
                         print("\t\tTotal:\(total)")
                     }

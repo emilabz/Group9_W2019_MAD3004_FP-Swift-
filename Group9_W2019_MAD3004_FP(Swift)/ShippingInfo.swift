@@ -49,7 +49,7 @@ class ShippingInfo:IDisplay{
         case 2:
             print("Select region/province\n1.Ontario\n2.British Columbia\n3.Quebec\n4.Alberta")
             self.shippingRegionId=Int(readLine()!)!
-        default: print("Invalid choice")
+            default: print("Invalid choice")
         }
     }
     func display() -> String {

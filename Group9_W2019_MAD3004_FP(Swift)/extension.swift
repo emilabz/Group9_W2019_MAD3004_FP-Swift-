@@ -33,10 +33,10 @@ extension String{
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: self)
     }
-    
+        
     func isValidPassword() -> Bool {
         //guard self != nil else { return false }
-        
+            
         // at least one uppercase,
         // at least one digit
         // at least one lowercase
@@ -61,7 +61,7 @@ extension Date{
         return formatter.string(from: self)
     }
 }
-/*public func currency() -> String
- {
- return String.init(format: "$%0.2f", self)
- }*/
+    /*public func currency() -> String
+    {
+        return String.init(format: "$%0.2f", self)
+    }*/
