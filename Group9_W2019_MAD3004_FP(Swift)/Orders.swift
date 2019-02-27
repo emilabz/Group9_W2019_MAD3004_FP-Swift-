@@ -53,17 +53,18 @@ class Orders : IDisplay{
         print("order placed successfully.Your id is \(self.orderId)")
         print("OrderId\t\tDate Created\t\tDate shipped\t\tCustomerName\t\tCustomer Id\t\tStatus\t\tShipping Id")
         print(display())
-        //od.append(OrderDetails(cartObj: cartObj, orderId: self.orderId))
-    }
-    func display() -> String {
-        let dispString = "\(self.orderId)\t\t\(self.dateCreated)\t\t\(self.dateShipped)\t\t\(self.customerName)\t\t\(self.customerId)\t\t\(self.status)\t\t\(self.shippingId)"
-       /* print("\tProduct Id\t   ProductName\t   Price\t Quantity\t  Subtotal")
+        print("\tProduct Id\t   ProductName\t   Price\t Quantity\t  Subtotal")
         var total:Float=0
         for i in od{
             total += i.subtotal
             print(i.display())
         }
-        print("\t\t\tTotal:\(total)")*/
+        print("\t\t\tTotal:\(total)")
+        //od.append(OrderDetails(cartObj: cartObj, orderId: self.orderId))
+    }
+    func display() -> String {
+        let dispString = "\(self.orderId)\t\t\(self.dateCreated)\t\t\(self.dateShipped)\t\t\(self.customerName)\t\t\(self.customerId)\t\t\(self.status)\t\t\(self.shippingId)"
+    
         return dispString
     }
 }

@@ -35,7 +35,7 @@ class ShoppingCart{
         print("Item No.\t\tItem Name\t\tQuantity\t  Date Added")
         for i in p{
             if(self.productId == i.productId){
-                print("\t\(self.cartId)\t    \(i.productName)\t    \(self.quantity)\t       \(self.dateAdded)")
+                print("\t\(self.productId)\t    \(i.productName)\t    \(self.quantity)\t       \(self.dateAdded)")
             }
         }
         

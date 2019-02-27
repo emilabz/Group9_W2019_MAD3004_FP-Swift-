@@ -35,7 +35,7 @@ class OrderDetails:IDisplay{
         return (ucost * qu)
     }
     func display() -> String {
-        let retString=""
+        let retString="\(self.productId)\t\t\(self.productName)\t\t\(self.unitCost)\t\t\(self.quantity)\t\t\(self.subtotal)"
         return retString
     }
 }

@@ -58,9 +58,12 @@ repeat{
                 print(i.display())
                 //print("\t\(i.productId)\t   \(i.productName)\t\t\(i.productPrice)")
             }
-            print("select a product to add to cart. if not press 0")
-            let choice=Int(readLine()!)!
-            if(choice != 0){
+            var ch:String=""
+            var choice:Int
+            repeat{
+                print("select a product to add to cart. if not press 0")
+                choice=Int(readLine()!)!
+                //if(choice != 0){break}
                 print("Enter quantity")
                 let q=Int(readLine()!)!
                 //if(q<)        //accepting and checking quantity
@@ -70,8 +73,11 @@ repeat{
                 c1.sc[c1.sc.endIndex-1].addCartItem(cartId: 1, productId: choice, quantity: q, dateAdded: currdate)
                 //print("added successfully")
                 //ask for repeating orders. if thats done then checkout
-                c1.checkOut()
-            }
+                print("Do you want to continue y/n?")
+                ch=readLine()!
+            }while(choice != 0 && ch == "y")
+                    c1.checkOut()
+            
     
         case "2":   //view items on sale
             if(c1.sc.isEmpty){
@@ -124,3 +130,4 @@ repeat{
         }
     }while(cho != "7")
 }while(ch != "3")
+
