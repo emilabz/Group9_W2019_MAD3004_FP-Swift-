@@ -86,14 +86,44 @@ class Customer : User,IDisplay{
         }
     }
     func updateProfile(){
-        
+        print("Enter choice to be updated\n1. Address\n2. Email\n3. Shipping info\n4. Credit Card Info\n5. Password")
+        let cho=Int(readLine()!)!
+        switch(cho){
+        case 1:
+            print("Enter address")
+            self.address=readLine()!
+            break
+            
+        case 2:
+            print("Enter new email")
+            self.email=readLine()!
+            break
+            
+        case 3:
+            print("Enter new shipping info")
+            self.shippingInfo=readLine()!
+            break
+            
+        case 4:
+            print("Enter new credit card info")
+            self.creditCardInfo=readLine()!
+            break
+            
+        case 5:
+            print("Enter new password")
+            self.password=readLine()!
+            break
+
+        default:
+            print("Enter valid choice")
+        }
     }
     func checkOut(){
         let date=Date()
         let sdate=Date.init(timeIntervalSinceNow: 5*86400)
         let currdate=date.formatDate()
         let shipdate=sdate.formatDate()
-        print("Select shipping type1.Domestic 2.International")
+        print("Select shipping type\n1.Domestic 2.International")
         let choice=Int(readLine()!)!
         var shipCost:Int
         var shipType:String
