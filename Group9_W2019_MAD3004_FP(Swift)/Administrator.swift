@@ -15,7 +15,22 @@ class Admininstrator : User{
         self.email=String()
         super.init()
     }
-    func updateCatalog() -> Bool{
+    func updateCatalog(prodId:Int,quantity:Int) -> Bool{
+        for i in p{
+            if(i.getproductID == prodId){
+                i.productQuantity=quantity
+                return true
+            }
+        }
+        return false
+    }
+    func updateCatalog(prodID:Int,prodName:String,price:Float,quantity:Int) -> Bool {
+        for i in p{
+            if(i.getproductID == prodID){
+                return false
+            }
+        }
+        p.append(Products(productId: prodID, productName: prodName, productQuantity: quantity, productPrice: price))
         return true
     }
 }

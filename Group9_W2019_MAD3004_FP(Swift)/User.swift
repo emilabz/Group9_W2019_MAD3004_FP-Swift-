@@ -11,6 +11,11 @@ class User{
     var userId:String
     var password:String
     var loginStatus:String
+    var getuserId:String{
+        get{
+            return userId
+        }
+    }
     init(){
         self.userId=String()
         self.password=String()

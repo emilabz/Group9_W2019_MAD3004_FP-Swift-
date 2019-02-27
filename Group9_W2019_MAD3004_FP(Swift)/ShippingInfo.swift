@@ -8,7 +8,7 @@
 
 import Foundation
 import Darwin
-class ShippingInfo{
+class ShippingInfo:IDisplay{
     var shippingId:Int
     var shippingType:String
     var shippingCost:Int
@@ -32,6 +32,28 @@ class ShippingInfo{
         self.shippingCost=shipCost
     }
     func updateShippingInfo(){
-        
+        print("Select option to change\n1.Shipping Type\n2.Shipping Region")
+        let ch = Int(readLine()!)!
+        switch(ch){
+        case 1:
+            print("Select shipping type1.Domestic 2.International")
+            let choice=Int(readLine()!)!
+            if(choice == 1){
+                self.shippingCost=5
+                self.shippingType="Domestic"
+            }
+            else{
+                self.shippingCost=15
+                self.shippingType="International"
+            }
+        case 2:
+            print("Select region/province\n1.Ontario\n2.British Columbia\n3.Quebec\n4.Alberta")
+            self.shippingRegionId=Int(readLine()!)!
+            default: print("Invalid choice")
+        }
+    }
+    func display() -> String {
+        let retString = "Id: \(self.shippingRegionId)\nType: \(self.shippingType)\nShipping region ID: \(self.shippingRegionId)\nShipping cost: \(self.shippingCost)"
+        return retString
     }
 }

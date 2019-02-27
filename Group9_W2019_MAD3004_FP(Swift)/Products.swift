@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Products{
+class Products:IDisplay{
     var productId:Int
     /*{
         get{
@@ -17,6 +17,11 @@ class Products{
             productId=newId
         }
     }*/
+    var getproductID:Int{
+        get{
+            return productId
+        }
+    }
     var productName:String
     /*{
         get{
@@ -56,7 +61,8 @@ class Products{
         self.productQuantity=productQuantity
         self.productPrice=productPrice
     }
-    //func prodisplay(){
-        
-    //}
+    func display() -> String {
+        let retString = "\t\(self.productId)\t  \(self.productName)\t\t\(self.productPrice)"
+        return retString
+    }
 }

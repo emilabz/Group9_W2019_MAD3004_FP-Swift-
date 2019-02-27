@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class OrderDetails{
+class OrderDetails:IDisplay{
     var orderId:Int
     var productId:Int
     var productName:String
@@ -33,5 +33,9 @@ class OrderDetails{
     func prod(ucost:Float,q:Int)->Float{
         let qu=(Float)(q)
         return (ucost * qu)
+    }
+    func display() -> String {
+        let retString=""
+        return retString
     }
 }
