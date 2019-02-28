@@ -46,8 +46,14 @@ extension String{
     }
     func isSimilarId()  -> Bool
     {
-        for i in c{
+        /*for i in c{
             if (self == i.userId){
+                return true
+            }
+        }
+        return false*/
+        for key in custDict.keys{
+            if(self == key){
                 return true
             }
         }
@@ -65,3 +71,16 @@ extension Date{
     {
         return String.init(format: "$%0.2f", self)
     }*/
+extension Int{
+    func isToomuch(id:Int) -> Bool
+    {
+        for i in p{
+            if i.productId == id{
+                if self > i.productQuantity{
+                    return true
+                }
+            }
+        }
+    return false
+    }
+}

@@ -11,18 +11,21 @@ class User{
     var userId:String
     var password:String
     var loginStatus:String
-    var getuserId:String{
+    /*var getuserId:String{
         get{
             return userId
         }
-    }
+    }*/
     init(){
         self.userId=String()
         self.password=String()
         self.loginStatus=String()
     }
-    init(uId:String,pass:String,lstatus:String){
+    init(uId:String,pass:String,lstatus:String)throws{
         self.userId=uId
+        if (!pass.isValidPassword()){
+            throw errors.invalidPassword
+        }
         self.password=pass
         self.loginStatus=lstatus
     }

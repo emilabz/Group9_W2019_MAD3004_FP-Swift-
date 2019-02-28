@@ -17,7 +17,7 @@ class Products:IDisplay{
             productId=newId
         }
     }*/
-    var getproductID:Int{
+    var getproductId:Int{
         get{
             return productId
         }
@@ -31,6 +31,11 @@ class Products:IDisplay{
             productName=newName
         }
     }*/
+    var getproductName:String{
+        get{
+            return productName
+        }
+    }
     var productQuantity:Int
     /*{
         get{

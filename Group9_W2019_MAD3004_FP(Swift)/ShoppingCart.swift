@@ -32,9 +32,10 @@ class ShoppingCart{
         self.quantity=Int(readLine()!)! //https://blog.faodailtechnology.com/reading-standard-input-stdin-in-swift-45f81b3caf2c //Int(readLine(strippingNewline: true)!)!
     }
     func viewCartDetails(){
+        print("cart id:\(self.cartId)")
         print("Item No.\t\tItem Name\t\tQuantity\t  Date Added")
         for i in p{
-            if(self.productId == i.productId){
+            if(self.productId == i.getproductId){
                 print("\t\(self.productId)\t    \(i.productName)\t    \(self.quantity)\t       \(self.dateAdded)")
             }
         }

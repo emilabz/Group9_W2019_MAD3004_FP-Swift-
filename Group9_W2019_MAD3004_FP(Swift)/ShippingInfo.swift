@@ -9,7 +9,7 @@
 import Foundation
 import Darwin
 class ShippingInfo:IDisplay{
-    var shippingId:Int
+    private var shippingId:Int
     var shippingType:String
     var shippingCost:Int
     var shippingRegionId:Int

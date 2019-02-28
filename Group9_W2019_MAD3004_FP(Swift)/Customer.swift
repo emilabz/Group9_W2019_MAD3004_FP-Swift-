@@ -31,13 +31,16 @@ class Customer : User,IDisplay{
         self.shippingInfo=String()
         super.init()
     }
-    init(uId:String,pass:String,lstatus:String,cName:String,address:String,email:String,creditcInfo:String,shipInfo:String){
+    init(uId:String,pass:String,lstatus:String,cName:String,address:String,email:String,creditcInfo:String,shipInfo:String)throws{
         self.customerName=cName
         self.address=address
+        if(!email.isValidEmail()){
+            throw errors.invalidEmail
+        }
         self.email=email
         self.creditCardInfo=creditcInfo
         self.shippingInfo=shipInfo
-        super.init(uId: uId, pass: pass, lstatus: lstatus)
+        try super.init(uId: uId, pass: pass, lstatus: lstatus)
     }
     func register(){
         var ch=0

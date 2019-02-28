@@ -14,6 +14,7 @@
 		2C9AEB3D221C812800F3A4C3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AEB3C221C812800F3A4C3 /* User.swift */; };
 		2C9AEB3F221C822000F3A4C3 /* Administrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AEB3E221C822000F3A4C3 /* Administrator.swift */; };
 		2C9AEB41221C89A600F3A4C3 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9AEB40221C89A600F3A4C3 /* Products.swift */; };
+		2CDB4A5122278CF600A4F7B5 /* enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB4A5022278CF600A4F7B5 /* enum.swift */; };
 		9BE12B91221F72C20067FD6A /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE12B90221F72C20067FD6A /* extension.swift */; };
 		9BE12B93221F93640067FD6A /* IDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE12B92221F93640067FD6A /* IDisplay.swift */; };
 		9BE26BBF2217970300E57DE0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE26BBE2217970300E57DE0 /* main.swift */; };
@@ -40,6 +41,7 @@
 		2C9AEB3C221C812800F3A4C3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2C9AEB3E221C822000F3A4C3 /* Administrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Administrator.swift; sourceTree = "<group>"; };
 		2C9AEB40221C89A600F3A4C3 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		2CDB4A5022278CF600A4F7B5 /* enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enum.swift; sourceTree = "<group>"; };
 		9BE12B90221F72C20067FD6A /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		9BE12B92221F93640067FD6A /* IDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDisplay.swift; sourceTree = "<group>"; };
 		9BE26BBB2217970300E57DE0 /* Group9_W2019_MAD3004_FP(Swift) */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Group9_W2019_MAD3004_FP(Swift)"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				9BE26BBE2217970300E57DE0 /* main.swift */,
+				2CDB4A5022278CF600A4F7B5 /* enum.swift */,
 				9BE12B92221F93640067FD6A /* IDisplay.swift */,
 				2C9AEB40221C89A600F3A4C3 /* Products.swift */,
 				9BE26BC52217974800E57DE0 /* Customer.swift */,
@@ -151,6 +154,7 @@
 			files = (
 				2C9AEB41221C89A600F3A4C3 /* Products.swift in Sources */,
 				2C9AEB39221C683200F3A4C3 /* OrderDetails.swift in Sources */,
+				2CDB4A5122278CF600A4F7B5 /* enum.swift in Sources */,
 				2C9AEB3B221C6D2100F3A4C3 /* ShoppingCart.swift in Sources */,
 				9BE12B91221F72C20067FD6A /* extension.swift in Sources */,
 				9BE26BBF2217970300E57DE0 /* main.swift in Sources */,
@@ -286,7 +290,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 83BF5GXW49;
+				DEVELOPMENT_TEAM = 9L3B383ALC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -298,7 +302,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 83BF5GXW49;
+				DEVELOPMENT_TEAM = 9L3B383ALC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

@@ -12,13 +12,17 @@ import Darwin
 var ch="0"
 var cho="0"
 var p=[Products]()
+var c=[Customer]()
+var tempObj:Customer?
+var custDict:[String:Customer]=[:]
+do{
 p.append(Products(productId: 1, productName: "Iphone XS Max 64GB", productQuantity: 10, productPrice: 1200.00))
 p.append(Products(productId: 2, productName: "Samsung Note 9 64GB", productQuantity: 5, productPrice: 949.99))
-var c1=Customer(uId: "user1", pass: "user1", lstatus: "C", cName: "UserA", address: "Qwerty1,aaaa,bbb,c", email: "user1@gmail.com", creditcInfo: "1231234545", shipInfo: "State1,Country1")
+let c1=try Customer(uId: "user1", pass: "User1abc", lstatus: "C", cName: "UserA", address: "Qwerty1,aaaa,bbb,c", email: "user1@gmail.com", creditcInfo: "1231234545", shipInfo: "State1,Country1")
+let a1=try Admininstrator(userId: "admin1", pass: "Admin1abc", adminName: "Admin-A", email: "admin1@gmail.com")
 //var c2=Customer()
-var c=[Customer]()
-var custDict:[String:Customer]=[:]
-custDict.updateValue(c1, forKey: c1.getuserId)
+
+custDict.updateValue(c1, forKey: c1.userId)
 //custDict.updateValue(, forKey: <#T##String#>)
 //var cTemp=Customer()
 c.append(c1)
@@ -27,17 +31,30 @@ repeat{
     ch=readLine()!
     switch(ch){
     case "1":
-        print("In login")
+        print("In login\nEnter user ID")
+        let userId=readLine()!
+        print("Enter password")
+        let password=readLine()!
+        if custDict.keys.contains(userId){
+            tempObj=custDict[userId]
+            tempObj!.login(uId: userId, pass: password)
+            print(tempObj!.display())
+        }
+        else{
+            print("User doesnt exist")
+            continue
+        }
         //type of user needed
-        c1.login(uId: "user1",pass: "user1")
+        //c1.login(uId: "user1",pass: "user1")
         break
 
     case "2":
         print("In signup")
         let cus=Customer()
         cus.register()
-        custDict.updateValue(cus, forKey: cus.getuserId)
+        custDict.updateValue(cus, forKey: cus.userId)
         c.append(cus)
+        continue
         //c.append(Customer())
         //c[c.endIndex-1].register()
         
@@ -63,49 +80,65 @@ repeat{
             repeat{
                 print("select a product to add to cart. if not press 0")
                 choice=Int(readLine()!)!
+                if !(0...p.count).contains(choice){
+                    throw errors.invalidChoice
+                }
                 //if(choice != 0){break}
                 print("Enter quantity")
                 let q=Int(readLine()!)!
                 //if(q<)        //accepting and checking quantity
+                if q.isToomuch(id: choice){
+                    throw errors.quantityOverStock
+                }
                 let date=Date()
                 let currdate=date.formatDate()
-                c1.sc.append(ShoppingCart())
-                c1.sc[c1.sc.endIndex-1].addCartItem(cartId: 1, productId: choice, quantity: q, dateAdded: currdate)
+                let cartTemp=ShoppingCart()
+                
+                cartTemp.addCartItem(cartId: Int.random(in: 1...100), productId: choice, quantity: q, dateAdded: currdate)
+                tempObj!.sc.append(cartTemp)
+                //tempObj.sc.append(ShoppingCart())
+                //c1.sc[c1.sc.endIndex-1].addCartItem(cartId: 1, productId: choice, quantity: q, dateAdded: currdate)
                 //print("added successfully")
                 //ask for repeating orders. if thats done then checkout
                 print("Do you want to continue y/n?")
                 ch=readLine()!
             }while(choice != 0 && ch == "y")
-                    c1.checkOut()
+                    tempObj!.checkOut()
             
     
         case "2":   //view items on sale
-            if(c1.sc.isEmpty){
+            if(tempObj!.sc.isEmpty){
                 print("Your cart is empty")
             }
             else{
                 print("Your cart details are:")
-                for i in c1.sc{
+                for i in tempObj!.sc{
                     i.viewCartDetails()
                 }
             }
     
         case "3":   //view cart
-            print("Enter cart id")
-            let cartId=Int(readLine()!)!
-            for i in c1.sc{
-                if(i.cartId == cartId){
-                    i.updateQuantity()
+            if(tempObj!.sc.isEmpty){
+                print("Your cart is empty")
+            }
+            else{
+                print("Enter cart id")
+                let cartId=Int(readLine()!)!
+                for i in tempObj!.sc{
+                    if(i.cartId == cartId){
+                        i.updateQuantity()
+                    }
                 }
             }
+        
     
         case "4":   //placed orders
-            if(c1.o.isEmpty){
+            if(tempObj!.o.isEmpty){
                 print("Your order is empty")
             }
             else{
                 print("Your orders are")
-                for i in c1.o{
+                for i in tempObj!.o{
                     var total:Float=0
                     print(i.display())
                     if(i.od.isEmpty){
@@ -120,8 +153,18 @@ repeat{
                     }
                 }
             }
-        //case 5: //update shipping info
-        case "6": print(c1.display())
+        case "5":
+            print("Enter shipping Id")
+            let shipId=Int(readLine()!)!
+            for i in tempObj!.o{                    //inside orders of the customer
+                for j in i.si{                      //inside shipping infos of each order
+                    if(shipId == j.getId){
+                        j.updateShippingInfo()
+                    }
+                }
+            }
+        //update shipping info
+        case "6": print(tempObj!.display())
         case "7":
             print("Signing out")
             
@@ -130,4 +173,16 @@ repeat{
         }
     }while(cho != "7")
 }while(ch != "3")
+}catch errors.invalidPassword{
+    print("Invalid password")
+}
+catch errors.quantityOverStock{
+    print("Quantity over stock")
+}
+catch errors.invalidChoice{
+    print("Invalid choice")
+}
+catch errors.invalidEmail{
+    print("Invalid email")
+}
 
