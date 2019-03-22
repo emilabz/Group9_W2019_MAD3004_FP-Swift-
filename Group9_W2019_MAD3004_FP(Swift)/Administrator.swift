@@ -21,7 +21,7 @@ class Admininstrator : User{
             throw errors.invalidEmail
         }
         self.email=email
-        try super.init(uId: userId, pass: pass, lstatus: "R")
+        try super.init(uId: userId, pass: pass, lstatus: "A")
     }
     func updateCatalog(prodId:Int,quantity:Int) -> Bool{
         for i in p{

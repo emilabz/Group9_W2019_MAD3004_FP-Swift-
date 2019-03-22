@@ -46,6 +46,7 @@ class ShippingInfo:IDisplay{
                 self.shippingCost=15
                 self.shippingType="International"
             }
+            //fallthrough
         case 2:
             print("Select region/province\n1.Ontario\n2.British Columbia\n3.Quebec\n4.Alberta")
             self.shippingRegionId=Int(readLine()!)!
